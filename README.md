@@ -42,3 +42,33 @@ This hybrid approach ensures the chatbot is both high-performing and scalable wi
 
 **Frontend and Backend**:
 For deployment, FastAPI was selected for its speed and ability to handle concurrent requests, while Streamlit was used for its simplicity in frontend implementation. 
+
+## Deployment Instructions
+Create a new virtual environment and activate it
+```
+python -m venv chatbot-env
+source vllm-rag-env/bin/activate  # On Mac/Linux
+chatbot-env\Scripts\activate     # On Windows
+```
+Install required libraries from requirements.txt
+```
+pip install -r requirements.txt
+```
+To add more books to the database, add them to data/books and run. I have already added “Dune” and “I have no mouth and I must scream” to the FAISS database as an example so this step can be skipped
+```
+python process_books.py
+```
+Go to https://huggingface.co/settings/tokens and create your own token with the Token Type = “Write”. Copy your token. Go to https://huggingface.co/mistralai/Mistral-7B-v0.1 and request for access to use the Mistral7B model.
+Open hf_login.py and paste your token in the line provided. 
+Note: For now, you can skip creating your own token and use mine provided in email.
+Run hf_login.py
+```
+python hf_login.py
+```
+Run main.py in one terminal. Open a new terminal and run app.py using streamlit
+```
+python main.py
+```
+```
+streamlit run app.py
+```
