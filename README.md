@@ -9,6 +9,7 @@ High accuracy, scalability, speed, and cost efficiency were the core principles 
 ## Handling Scale and Performance Optimization
 
 The system is built to handle increasing data volumes efficiently. FAISS ensures fast similarity searches, even with a large database of book embeddings. PCA-based dimensionality reduction and L2 normalization optimizes retrieval without significant accuracy loss. The backend is built using FastAPI, which supports asynchronous request handling, ensuring smooth performance even under heavy load. 
+
 The framework, vllm + langchain, allows for efficient inference, optimized memory management and faster token generation. It enables handling larger batch sizes and reduces latency when processing multiple queries. Since Mistral 7B is a sizable model, vLLM ensures that the inference process remains smooth, preventing excessive GPU memory consumption and enabling efficient parallelization. Both FAISS and framework support vertical and horizontal scaling (explained in more detail in Documentation).
 Token length management and efficient query preprocessing further contribute to scalability. The model is hosted in an environment optimized for inference speed, with parameters like temperature=0.7 and top_p=0.9 balancing response diversity and coherence.
 
